@@ -1,6 +1,6 @@
 language: java
 
-script: ./gradlew build jacocoTestReport
+script: ./gradlew build jacocoTestReport --stacktrace
 
 addons:
   apt:
@@ -17,6 +17,3 @@ before_install:
   - cd ./sources
   - chmod +x gradlew
   - ./gradlew wrapper
-
-after_success:
-  - bash <(curl -s https://codecov.io/bash)

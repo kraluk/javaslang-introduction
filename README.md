@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/kraluk/javaslang-introduction.svg?branch=master)](https://travis-ci.org/kraluk/javaslang-introduction)
+
 # javaslang-introduction
 
-[![Build Status](https://travis-ci.org/kraluk/functional-java-workshop.svg?branch=master)](https://travis-ci.org/kraluk/functional-java-workshop)
+An introduction to the JavaSlang in a more advanced way. I hope so ;-)

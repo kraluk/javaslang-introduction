@@ -26,6 +26,13 @@ repositories {
     jcenter()
 }
 
+test {
+    testLogging {
+        events 'passed', 'skipped', 'failed'
+        exceptionFormat = 'full'
+    }
+}
+
 dependencies {
 
     // Logger
