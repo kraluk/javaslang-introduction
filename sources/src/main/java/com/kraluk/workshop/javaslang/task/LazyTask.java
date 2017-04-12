@@ -3,6 +3,7 @@ package com.kraluk.workshop.javaslang.task;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serializable;
 import java.util.function.Supplier;
 
 import javaslang.Function4;
@@ -21,19 +22,19 @@ public class LazyTask {
             .of(() -> someComplexAndHeavyMathOperation(x, a, b, c));
     }
 
-    public static Number calculateInAnotherWay(Double x, Double a, Double b, Double c) {
+    public static Serializable calculateInAnotherWay(Double x, Double a, Double b, Double c) {
         return Lazy
             .val(() -> someComplexAndHeavyMathOperation(x, a, b, c),
-                Number.class);
+                Serializable.class);
     }
 
     // ------------------------------------------------------------------------------------------
 
-    public static Number calculateInAlternativeWay(Double x, Double a, Double b, Double c) {
+    public static Serializable calculateInAlternativeWay(Double x, Double a, Double b, Double c) {
 
         return Lazy
             .val(bind(LazyTask::someComplexAndHeavyMathOperation, x, a, b, c),
-                Number.class);
+                Serializable.class);
     }
 
     private static <T> Supplier<T> bind(Function4<T, T, T, T, T> fn, T x, T a, T b, T c) {
@@ -49,7 +50,7 @@ public class LazyTask {
     // ------------------------------------------------------------------------------------------
 
     public static void main(String[] args) {
-        Number solution2 = calculateInAnotherWay(1.0, 1.0, 1.0, 1.0);
+        Serializable solution2 = calculateInAnotherWay(1.0, 1.0, 1.0, 1.0);
 
         Lazy<Double> solution = calculate(2.0, 2.0, 2.0, 2.0);
 
