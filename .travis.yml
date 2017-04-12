@@ -1,0 +1,22 @@
+language: java
+
+script: ./gradlew build jacocoTestReport
+
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer
+jdk:
+  - oraclejdk8
+
+branches:
+  only:
+    - master
+
+before_install:
+  - cd ./sources
+  - chmod +x gradlew
+  - ./gradlew wrapper
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

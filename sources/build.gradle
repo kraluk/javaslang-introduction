@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'groovy'
+    id 'idea'
+    id 'jacoco'
+}
+
+// Project settings
+group = 'com.kraluk.workshop.javaslang'
+version = '0.1.0-SNAPSHOT'
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled = true
+    }
+}
+
+// Java version
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+
+    // Logger
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+    compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
+
+    compile group: 'io.javaslang', name: 'javaslang', version: '2.0.6'
+
+    // Test dependencies
+    testCompile group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.4.10'
+    testCompile group: 'org.spockframework', name: 'spock-core', version: '1.1-groovy-2.4-rc-4'
+    testCompile group: 'org.hamcrest', name: 'hamcrest-core', version: '1.3'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.5'
+}
