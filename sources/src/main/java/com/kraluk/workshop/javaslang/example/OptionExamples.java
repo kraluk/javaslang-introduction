@@ -1,6 +1,6 @@
 package com.kraluk.workshop.javaslang.example;
 
-import com.kraluk.workshop.javaslang.core.exception.WorkshopException;
+import com.kraluk.workshop.javaslang.common.exception.WorkshopException;
 
 import javaslang.control.Option;
 

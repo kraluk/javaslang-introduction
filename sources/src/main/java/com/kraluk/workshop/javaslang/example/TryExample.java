@@ -1,7 +1,7 @@
 package com.kraluk.workshop.javaslang.example;
 
-import com.kraluk.workshop.javaslang.core.enums.Result;
-import com.kraluk.workshop.javaslang.core.exception.WorkshopException;
+import com.kraluk.workshop.javaslang.common.enums.Result;
+import com.kraluk.workshop.javaslang.common.exception.WorkshopException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

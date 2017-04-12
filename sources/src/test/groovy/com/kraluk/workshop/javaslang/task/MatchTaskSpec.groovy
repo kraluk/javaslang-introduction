@@ -46,7 +46,7 @@ class MatchTaskSpec extends Specification {
 
     }
 
-def "should do some complex logic in a better way (null protection)"() {
+    def "should do some complex logic in a better way (null protection)"() {
         when:
             def result = MatchTask.doSomeComplexLogicInBetterWay(additionalOptions, importanceFlag, code, value)
 

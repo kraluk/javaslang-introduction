@@ -1,12 +1,13 @@
 package com.kraluk.workshop.javaslang.example;
 
-import javaslang.collection.CharSeq;
-import javaslang.collection.List;
-import javaslang.control.Validation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
+
+import javaslang.collection.CharSeq;
+import javaslang.collection.List;
+import javaslang.control.Validation;
 
 /**
  * Validation Examples
@@ -23,8 +24,8 @@ public class ValidationExample {
         PersonValidator personValidator = new PersonValidator();
 
         Validation<List<String>, Person>
-                valid =
-                personValidator.validatePerson("Leszke Smieszke", 42);
+            valid =
+            personValidator.validatePerson("Leszke Smieszke", 42);
         log.info("{}", valid.get());
     }
 
@@ -32,8 +33,8 @@ public class ValidationExample {
         PersonValidator personValidator = new PersonValidator();
 
         Validation<List<String>, Person>
-                invalid =
-                personValidator.validatePerson("Justynian Bimber", -1);
+            invalid =
+            personValidator.validatePerson("Justynian Bimber", -1);
         //log.info("{}", invalid.get());
         log.info("{}", Arrays.toString(invalid.getError().toJavaArray()));
     }
@@ -55,15 +56,15 @@ class PersonValidator {
 
     private Validation<String, String> validateName(String name) {
         return CharSeq.of(name).replaceAll(VALID_NAME_CHARS, "").transform(seq -> seq.isEmpty()
-                ? Validation.valid(name)
-                : Validation.invalid("Name contains invalid characters: '"
+            ? Validation.valid(name)
+            : Validation.invalid("Name contains invalid characters: '"
                 + seq.distinct().sorted() + "'"));
     }
 
     private Validation<String, Integer> validateAge(int age) {
         return age < MIN_AGE
-                ? Validation.invalid("Age must be greater than " + MIN_AGE)
-                : Validation.valid(age);
+            ? Validation.invalid("Age must be greater than " + MIN_AGE)
+            : Validation.valid(age);
     }
 }
 

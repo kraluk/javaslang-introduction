@@ -32,4 +32,5 @@
         <level value="INFO"/>
         <appender-ref ref="consoleAppender"/>
     </root>
+
 </configuration>

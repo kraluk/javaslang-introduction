@@ -6,7 +6,7 @@ import spock.lang.Specification
 
 import java.time.Instant
 
-import static com.kraluk.workshop.javaslang.core.enums.Result.*
+import static com.kraluk.workshop.javaslang.common.enums.Result.*
 
 class PatternMatchingExamplesSpec extends Specification {
 

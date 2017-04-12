@@ -1,4 +1,4 @@
-package com.kraluk.workshop.javaslang.core.enums;
+package com.kraluk.workshop.javaslang.common.enums;
 
 /**
  * Simple Result enumeration

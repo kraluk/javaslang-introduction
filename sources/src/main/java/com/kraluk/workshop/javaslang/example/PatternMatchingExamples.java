@@ -1,6 +1,6 @@
 package com.kraluk.workshop.javaslang.example;
 
-import com.kraluk.workshop.javaslang.core.enums.Result;
+import com.kraluk.workshop.javaslang.common.enums.Result;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,12 +8,12 @@ import org.slf4j.LoggerFactory;
 import javaslang.collection.Stream;
 import javaslang.control.Option;
 
-import static com.kraluk.workshop.javaslang.core.enums.Result.FIRST;
-import static com.kraluk.workshop.javaslang.core.enums.Result.FORTH;
-import static com.kraluk.workshop.javaslang.core.enums.Result.NAN;
-import static com.kraluk.workshop.javaslang.core.enums.Result.SECOND;
-import static com.kraluk.workshop.javaslang.core.enums.Result.SECOND_OR_THIRD;
-import static com.kraluk.workshop.javaslang.core.enums.Result.YOLO;
+import static com.kraluk.workshop.javaslang.common.enums.Result.FIRST;
+import static com.kraluk.workshop.javaslang.common.enums.Result.FORTH;
+import static com.kraluk.workshop.javaslang.common.enums.Result.NAN;
+import static com.kraluk.workshop.javaslang.common.enums.Result.SECOND;
+import static com.kraluk.workshop.javaslang.common.enums.Result.SECOND_OR_THIRD;
+import static com.kraluk.workshop.javaslang.common.enums.Result.YOLO;
 import static javaslang.API.$;
 import static javaslang.API.Case;
 import static javaslang.API.Match;
