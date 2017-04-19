@@ -1,4 +1,4 @@
-package com.kraluk.workshop.javaslang.common.exception;
+package com.kraluk.workshop.vavr.common.exception;
 
 /**
  * General Workshop RuntimeException

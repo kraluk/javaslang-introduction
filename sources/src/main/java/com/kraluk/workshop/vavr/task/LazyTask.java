@@ -1,4 +1,4 @@
-package com.kraluk.workshop.javaslang.task;
+package com.kraluk.workshop.vavr.task;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

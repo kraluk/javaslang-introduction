@@ -1,4 +1,4 @@
-package com.kraluk.workshop.javaslang.example;
+package com.kraluk.workshop.vavr.example;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,19 +1,16 @@
-package com.kraluk.workshop.javaslang.example;
+package com.kraluk.workshop.vavr.example;
 
-import com.kraluk.workshop.javaslang.common.enums.Result;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.kraluk.workshop.vavr.common.enums.Result;
 
 import javaslang.collection.Stream;
 import javaslang.control.Option;
 
-import static com.kraluk.workshop.javaslang.common.enums.Result.FIRST;
-import static com.kraluk.workshop.javaslang.common.enums.Result.FORTH;
-import static com.kraluk.workshop.javaslang.common.enums.Result.NAN;
-import static com.kraluk.workshop.javaslang.common.enums.Result.SECOND;
-import static com.kraluk.workshop.javaslang.common.enums.Result.SECOND_OR_THIRD;
-import static com.kraluk.workshop.javaslang.common.enums.Result.YOLO;
+import static com.kraluk.workshop.vavr.common.enums.Result.FIRST;
+import static com.kraluk.workshop.vavr.common.enums.Result.FORTH;
+import static com.kraluk.workshop.vavr.common.enums.Result.NAN;
+import static com.kraluk.workshop.vavr.common.enums.Result.SECOND;
+import static com.kraluk.workshop.vavr.common.enums.Result.SECOND_OR_THIRD;
+import static com.kraluk.workshop.vavr.common.enums.Result.YOLO;
 import static javaslang.API.$;
 import static javaslang.API.Case;
 import static javaslang.API.Match;
@@ -29,7 +26,6 @@ import static javaslang.Predicates.isIn;
  * @author lukasz
  */
 public class PatternMatchingExamples {
-    private static final Logger log = LoggerFactory.getLogger(PatternMatchingExamples.class);
 
     public static Result simpleMatching(int index) {
         return Match(index).of(

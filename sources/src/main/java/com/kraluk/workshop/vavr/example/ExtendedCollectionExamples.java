@@ -1,7 +1,4 @@
-package com.kraluk.workshop.javaslang.example;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package com.kraluk.workshop.vavr.example;
 
 /**
  * Extended Collections Examples
@@ -9,7 +6,6 @@ import org.slf4j.LoggerFactory;
  * @author lukasz
  */
 public class ExtendedCollectionExamples {
-    private static final Logger log = LoggerFactory.getLogger(ExtendedCollectionExamples.class);
 
     public static java.util.List<Integer> filterValues(int... ints) {
         return javaslang.collection.List.ofAll(ints)

@@ -1,4 +1,4 @@
-package com.kraluk.workshop.javaslang.task;
+package com.kraluk.workshop.vavr.task;
 
 import java.util.List;
 import java.util.Random;

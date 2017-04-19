@@ -1,4 +1,4 @@
-package com.kraluk.workshop.javaslang.example
+package com.kraluk.workshop.vavr.example
 
 import javaslang.MatchError
 import javaslang.control.Option
@@ -6,7 +6,7 @@ import spock.lang.Specification
 
 import java.time.Instant
 
-import static com.kraluk.workshop.javaslang.common.enums.Result.*
+import static com.kraluk.workshop.vavr.common.enums.Result.*
 
 class PatternMatchingExamplesSpec extends Specification {
 
@@ -108,8 +108,8 @@ class PatternMatchingExamplesSpec extends Specification {
 
     def "should do a simple matching with some work"() {
         given:
-            def outStream = new ByteArrayOutputStream();
-            System.setOut(new PrintStream(outStream));
+            def outStream = new ByteArrayOutputStream()
+            System.setOut(new PrintStream(outStream))
 
         when:
             PatternMatchingExamples.simpleMatchingWithWork(index)

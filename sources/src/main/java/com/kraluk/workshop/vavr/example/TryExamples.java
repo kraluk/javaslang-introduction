@@ -1,10 +1,7 @@
-package com.kraluk.workshop.javaslang.example;
+package com.kraluk.workshop.vavr.example;
 
-import com.kraluk.workshop.javaslang.common.enums.Result;
-import com.kraluk.workshop.javaslang.common.exception.WorkshopException;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.kraluk.workshop.vavr.common.enums.Result;
+import com.kraluk.workshop.vavr.common.exception.WorkshopException;
 
 import java.io.FileNotFoundException;
 
@@ -22,11 +19,10 @@ import static javaslang.Predicates.instanceOf;
  *
  * @author lukasz
  */
-public class TryExample {
-    private static final Logger log = LoggerFactory.getLogger(TryExample.class);
+public class TryExamples {
 
-    public static Result tryWithResult() {
-        return Try.of(TryExample::someWork)
+    public static Result tryWithResult(Try.CheckedSupplier<Result> supplier) {
+        return Try.of(supplier)
             .recover(e -> Match(e).of(
                 Case(instanceOf(IllegalArgumentException.class), Result.FIRST),
                 Case(instanceOf(FileNotFoundException.class), Result.SECOND),
@@ -35,20 +31,17 @@ public class TryExample {
             .getOrElse(Result.NAN);
     }
 
-    public static Object tryWithFailureType() {
-        Try<Object> operation = Try.of(TryExample::someWork);
+    public static Object tryWithFailureType(Try.CheckedSupplier<Object> supplier) {
+        Try<Object> operation = Try.of(supplier);
 
         return Match(operation).of(
             Case(Success($(1)), "Sukces, ktorego nie bedzie :-("),
+            Case(Success($(e -> e instanceof Double && (Double) e > 500.00)),
+                Integer.MAX_VALUE),
             Case(Success($()), "Domyslny sukces!"),
-            Case(Success($(e -> e instanceof Integer && (Integer) e > 500)),
-                e -> String.format("[][][]%s[][][]", e)),
+
             Case(Failure($(instanceOf(WorkshopException.class))), "Lorkszopowy blad!"),
             Case(Failure($()), "Domyslny blad!")
         );
-    }
-
-    private static Result someWork() {
-        throw new IllegalArgumentException("Hello!");
     }
 }

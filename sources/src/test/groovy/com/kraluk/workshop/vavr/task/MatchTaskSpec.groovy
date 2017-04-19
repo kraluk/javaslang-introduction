@@ -1,4 +1,4 @@
-package com.kraluk.workshop.javaslang.task
+package com.kraluk.workshop.vavr.task
 
 import javaslang.control.Option
 import spock.lang.Specification
