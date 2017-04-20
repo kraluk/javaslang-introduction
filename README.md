@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/kraluk/javaslang-introduction.svg?branch=master)](https://travis-ci.org/kraluk/javaslang-introduction)
+[![Build Status](https://travis-ci.org/kraluk/vavr-introduction.svg?branch=master)](https://travis-ci.org/kraluk/vavr-introduction)
 
 # vavr-introduction
 
