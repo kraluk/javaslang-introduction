@@ -33,3 +33,5 @@ target/
 build/
 .gradletasknamecache
 !gradle-wrapper.jar
+
+sources/out
