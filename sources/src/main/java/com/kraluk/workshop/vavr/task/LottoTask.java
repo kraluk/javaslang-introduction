@@ -3,7 +3,7 @@ package com.kraluk.workshop.vavr.task;
 import java.util.List;
 import java.util.Random;
 
-import javaslang.collection.Stream;
+import io.vavr.collection.Stream;
 
 /**
  * Proposed solution of the Task 1

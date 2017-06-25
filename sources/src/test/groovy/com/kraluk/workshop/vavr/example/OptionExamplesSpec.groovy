@@ -6,23 +6,23 @@ class OptionExamplesSpec extends Specification {
 
     def "should return given value"() {
         given:
-            Integer value = 5
+        Integer value = 5
 
         when:
-            def result = OptionExamples.useOption(value)
+        def result = OptionExamples.useOption(value)
 
         then:
-            result == 5
+        result == 5
     }
 
     def "should throw an exception"() {
         given:
-            Integer value = null
+        Integer value = null
 
         when:
-            OptionExamples.useOption(value)
+        OptionExamples.useOption(value)
 
         then:
-            thrown(Exception)
+        thrown(Exception)
     }
 }

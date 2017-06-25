@@ -6,14 +6,12 @@ import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
 
-import javaslang.control.Try;
+import io.vavr.control.Try;
 
-import static javaslang.API.$;
-import static javaslang.API.Case;
-import static javaslang.API.Match;
-import static javaslang.Patterns.Failure;
-import static javaslang.Patterns.Success;
-import static javaslang.Predicates.instanceOf;
+import static io.vavr.API.$;
+import static io.vavr.API.Case;
+import static io.vavr.API.Match;
+import static io.vavr.Predicates.instanceOf;
 
 /**
  * Proposed solution of the Task 4
@@ -28,22 +26,10 @@ public class TryTask {
 
         return Try.of(() -> Files.readAllLines(Paths.get(path)))
             .recover(e -> Match(e).of(
-                Case(instanceOf(IOException.class), () -> IO_ERROR),
-                Case(instanceOf(NullPointerException.class), () -> NPE_ERROR)
+                Case($(instanceOf(IOException.class)), () -> IO_ERROR),
+                Case($(instanceOf(NullPointerException.class)), () -> NPE_ERROR)
             ))
             .andThen(Collections::unmodifiableList)
             .getOrElse(Collections.emptyList());
-    }
-
-    public static List<String> getResultInAnotherWay(final String path) {
-
-        Try<List<String>> recover = Try.of(() -> Files.readAllLines(Paths.get(path)));
-
-        return Match(recover).of(
-            Case(Success($()), Collections::unmodifiableList),
-            Case(Failure($(instanceOf(IOException.class))), IO_ERROR),
-            Case(Failure($(instanceOf(NullPointerException.class))), NPE_ERROR),
-            Case(Failure($()), Collections::emptyList)
-        );
     }
 }

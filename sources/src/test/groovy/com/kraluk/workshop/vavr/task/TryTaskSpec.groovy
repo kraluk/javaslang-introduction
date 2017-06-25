@@ -31,31 +31,16 @@ class TryTaskSpec extends Specification {
 
     def "should handle unusual situations and recover from it"() {
         when:
-            def result = TryTask.getResult(path)
+        def result = TryTask.getResult(path)
 
         then:
-            result == expected
+        result == expected
 
         where:
-            path                    || expected
-            tempPath as String      || content.split("\\n")
-            pathToNothing as String || TryTask.IO_ERROR
-            null                    || TryTask.NPE_ERROR
+        path                    || expected
+        tempPath as String      || content.split("\\n")
+        pathToNothing as String || TryTask.IO_ERROR
+        null                    || TryTask.NPE_ERROR
 
     }
-
-    def "should handle unusual situations and recover from it in an another way"() {
-        when:
-            def result = TryTask.getResultInAnotherWay(path)
-
-        then:
-            result == expected
-
-        where:
-            path                    || expected
-            tempPath as String      || content.split("\\n")
-            pathToNothing as String || TryTask.IO_ERROR
-            null                    || TryTask.NPE_ERROR
-    }
-
 }

@@ -1,12 +1,12 @@
 package com.kraluk.workshop.vavr.task;
 
-import javaslang.control.Option;
+import io.vavr.control.Option;
 
-import static javaslang.API.$;
-import static javaslang.API.Case;
-import static javaslang.API.Match;
-import static javaslang.Predicates.is;
-import static javaslang.Predicates.isIn;
+import static io.vavr.API.$;
+import static io.vavr.API.Case;
+import static io.vavr.API.Match;
+import static io.vavr.Predicates.is;
+import static io.vavr.Predicates.isIn;
 
 /**
  * Proposed solution of the Task 3
@@ -32,7 +32,7 @@ public class MatchTask {
                 } else if (code == 1 || code == 2) {
                     return "YOLO";
                 } else {
-                    return "NOT_OK";
+                    return "NOT_OK"; // TODO: not tested case!
                 }
             } else {
                 return "SO_BAD";
@@ -49,23 +49,23 @@ public class MatchTask {
                                                                final int code,
                                                                final double value) {
         return Match(additionalOptions).option(
-            Case(is("A"), o -> Match(importanceFlag).of(
+            Case($(is("A")), o -> Match(importanceFlag).of(
 
-                Case(is(true), f -> Match(code).of(
+                Case($(is(true)), f -> Match(code).of(
 
-                    Case(is(0), c -> Match(value).of(
-                        Case(v -> v > 0, "OK"),
-                        Case(v -> v == 0, "RTM"),
+                    Case($(is(0)), c -> Match(value).of(
+                        Case($(v -> v > 0), "OK"),
+                        Case($(v -> v == 0), "RTM"),
                         Case($(), "OMG")
                     )),
 
-                    Case(isIn(1, 2), "YOLO"),
+                    Case($(isIn(1, 2)), "YOLO"),
                     Case($(), "NOT_OK")
                 )),
 
-                Case(is(false), "SO_BAD")
+                Case($(is(false)), "SO_BAD")
             )),
-            Case(isIn("y", "Y"), "YOLO")
+            Case($(isIn("y", "Y")), "YOLO")
         );
     }
 }

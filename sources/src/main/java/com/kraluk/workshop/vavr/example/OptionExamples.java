@@ -2,7 +2,7 @@ package com.kraluk.workshop.vavr.example;
 
 import com.kraluk.workshop.vavr.common.exception.WorkshopException;
 
-import javaslang.control.Option;
+import io.vavr.control.Option;
 
 /**
  * Option Examples

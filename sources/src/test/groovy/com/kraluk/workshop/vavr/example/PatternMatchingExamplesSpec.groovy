@@ -1,7 +1,7 @@
 package com.kraluk.workshop.vavr.example
 
-import javaslang.MatchError
-import javaslang.control.Option
+import io.vavr.MatchError
+import io.vavr.control.Option
 import spock.lang.Specification
 
 import java.time.Instant
@@ -12,117 +12,117 @@ class PatternMatchingExamplesSpec extends Specification {
 
     def "should do a simple matching"() {
         when:
-            def result = PatternMatchingExamples.simpleMatching(index)
+        def result = PatternMatchingExamples.simpleMatching(index)
 
         then:
-            result == expected
+        result == expected
 
         where:
-            index             || expected
-            1                 || FIRST
-            2                 || SECOND
-            3                 || NAN
-            Integer.MIN_VALUE || NAN
-            Integer.MAX_VALUE || NAN
+        index             || expected
+        1                 || FIRST
+        2                 || SECOND
+        3                 || NAN
+        Integer.MIN_VALUE || NAN
+        Integer.MAX_VALUE || NAN
     }
 
     def "should throw an exception when invoking Match without \$()"() {
         when:
-            PatternMatchingExamples.simpleMatchingWithoutDefault(5)
+        PatternMatchingExamples.simpleMatchingWithoutDefault(5)
 
         then:
-            thrown MatchError
+        thrown MatchError
     }
 
     def "should do a simple matching with JavaSlang's Option"() {
         when:
-            def result = PatternMatchingExamples.simpleMatchingWithOption(index)
+        def result = PatternMatchingExamples.simpleMatchingWithOption(index)
 
         then:
-            result.get() == expected
+        result.get() == expected
 
         where:
-            index || expected
-            1     || FIRST
-            2     || SECOND
+        index || expected
+        1     || FIRST
+        2     || SECOND
     }
 
     def "should do a simple matching with JavaSlang's Option when unexpected index is given"() {
         when:
-            def result = PatternMatchingExamples.simpleMatchingWithOption(index as int)
+        def result = PatternMatchingExamples.simpleMatchingWithOption(index as int)
 
         then:
-            result == expected
+        result == expected
 
         where:
-            index             || expected
-            Integer.MIN_VALUE || Option.none()
-            Integer.MAX_VALUE || Option.none()
+        index             || expected
+        Integer.MIN_VALUE || Option.none()
+        Integer.MAX_VALUE || Option.none()
     }
 
     def "should do a simple matching with a predicate"() {
         when:
-            def result = PatternMatchingExamples.simpleMatchingWithPredicate(index)
+        def result = PatternMatchingExamples.simpleMatchingWithPredicate(index)
 
         then:
-            result == expected
+        result == expected
 
         where:
-            index || expected
-            1     || FIRST
-            2     || SECOND
-            3     || NAN
+        index || expected
+        1     || FIRST
+        2     || SECOND
+        3     || NAN
     }
 
     def "should do a simple matching with a complex predicate"() {
         when:
-            def result = PatternMatchingExamples.simpleMatchingWithComplexPredicate(index)
+        def result = PatternMatchingExamples.simpleMatchingWithComplexPredicate(index)
 
         then:
-            result == expected
+        result == expected
 
         where:
-            index         || expected
-            1             || FIRST
-            2             || SECOND_OR_THIRD
-            3             || SECOND_OR_THIRD
-            4             || FORTH
-            99            || FORTH
-            "YOLO"        || YOLO
-            Instant.now() || NAN
+        index         || expected
+        1             || FIRST
+        2             || SECOND_OR_THIRD
+        3             || SECOND_OR_THIRD
+        4             || FORTH
+        99            || FORTH
+        "YOLO"        || YOLO
+        Instant.now() || NAN
     }
 
     def "should do a simple matching with a value"() {
         when:
-            def result = PatternMatchingExamples.simpleMatchingWithValue(index)
+        def result = PatternMatchingExamples.simpleMatchingWithValue(index)
 
         then:
-            result == expected
+        result == expected
 
         where:
-            index || expected
-            1     || SECOND_OR_THIRD
-            2     || SECOND
-            4     || NAN
+        index || expected
+        1     || SECOND_OR_THIRD
+        2     || SECOND
+        4     || NAN
     }
 
     def "should do a simple matching with some work"() {
         given:
-            def outStream = new ByteArrayOutputStream()
-            System.setOut(new PrintStream(outStream))
+        def outStream = new ByteArrayOutputStream()
+        System.setOut(new PrintStream(outStream))
 
         when:
-            PatternMatchingExamples.simpleMatchingWithWork(index)
+        PatternMatchingExamples.simpleMatchingWithWork(index)
 
         then:
-            outStream.toString() == expected
+        outStream.toString() == expected
 
         where:
-            index || expected
-            1     || "1\n"
-            2     || "2\n"
-            4     || ""
-            42    || "Hello from run()!\n"
+        index || expected
+        1     || "1\n"
+        2     || "2\n"
+        4     || ""
+        42    || "Hello from run()!\n"
     }
 
 }

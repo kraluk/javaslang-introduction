@@ -3,7 +3,7 @@ package com.kraluk.workshop.vavr.example;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javaslang.Lazy;
+import io.vavr.Lazy;
 
 /**
  * Lazy Examples

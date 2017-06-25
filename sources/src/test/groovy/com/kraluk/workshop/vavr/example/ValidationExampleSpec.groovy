@@ -1,47 +1,47 @@
 package com.kraluk.workshop.vavr.example
 
-import javaslang.control.Validation
+import io.vavr.control.Validation
 import spock.lang.Specification
 
 class ValidationExampleSpec extends Specification {
 
     def "should validate given parameters"() {
         given:
-            def name = "Leszke Smieszke"
-            def age = 42
+        def name = "Leszke Smieszke"
+        def age = 42
 
         when:
-            Validation<javaslang.collection.List<String>, Person> valid =
-                    PersonValidator.validatePerson(name, age)
+        Validation<io.vavr.collection.List<String>, Person> valid =
+                PersonValidator.validatePerson(name, age)
 
         then:
-            valid instanceof Validation.Valid
+        valid instanceof Validation.Valid
         and:
-            with(valid) {
-                isValid() == true
-                isInvalid() == false
-                get() instanceof Person
-            }
+        with(valid) {
+            isValid() == true
+            isInvalid() == false
+            get() instanceof Person
+        }
     }
 
     def "should not validate given parameters and return error list"() {
         given:
-            def name = "^#_Justynian Bimbrownik__"
-            def age = -1
+        def name = "^#_Justynian Bimbrownik__"
+        def age = -1
 
         when:
-            Validation<javaslang.collection.List<String>, Person> invalid =
-                    PersonValidator.validatePerson(name, age)
+        Validation<io.vavr.collection.List<String>, Person> invalid =
+                PersonValidator.validatePerson(name, age)
 
         then:
-            invalid instanceof Validation.Invalid
+        invalid instanceof Validation.Invalid
         and:
-            with(invalid) {
-                isValid() == false
-                isInvalid() == true
-            }
+        with(invalid) {
+            isValid() == false
+            isInvalid() == true
+        }
         and:
-            invalid.getError().size() == 2
-            invalid.getError().forEach { e -> print(e + "\n") }
+        invalid.getError().size() == 2
+        invalid.getError().forEach { e -> print(e + "\n") }
     }
 }

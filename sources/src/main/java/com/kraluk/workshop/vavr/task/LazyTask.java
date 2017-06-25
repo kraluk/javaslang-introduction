@@ -6,8 +6,8 @@ import org.slf4j.LoggerFactory;
 import java.io.Serializable;
 import java.util.function.Supplier;
 
-import javaslang.Function4;
-import javaslang.Lazy;
+import io.vavr.Function4;
+import io.vavr.Lazy;
 
 /**
  * Proposed solution of the Task 2
@@ -49,6 +49,7 @@ public class LazyTask {
 
     // ------------------------------------------------------------------------------------------
 
+    // TODO: consider writting some tests instead of using a main method
     public static void main(String[] args) {
         Serializable solution2 = calculateInAnotherWay(1.0, 1.0, 1.0, 1.0);
 

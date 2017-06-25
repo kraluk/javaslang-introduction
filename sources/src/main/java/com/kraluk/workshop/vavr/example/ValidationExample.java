@@ -1,8 +1,8 @@
 package com.kraluk.workshop.vavr.example;
 
-import javaslang.collection.CharSeq;
-import javaslang.collection.List;
-import javaslang.control.Validation;
+import io.vavr.collection.CharSeq;
+import io.vavr.collection.Seq;
+import io.vavr.control.Validation;
 
 /**
  * Validation Examples
@@ -17,7 +17,7 @@ class PersonValidator {
     private static final String VALID_NAME_CHARS = "[a-zA-Z ]";
     private static final int MIN_AGE = 18;
 
-    public static Validation<List<String>, Person> validatePerson(String name, int age) {
+    public static Validation<Seq<String>, Person> validatePerson(String name, int age) {
         return Validation.combine(validateName(name), validateAge(age)).ap(Person::new);
     }
 
