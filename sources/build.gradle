@@ -9,13 +9,6 @@ plugins {
 group = 'com.kraluk.workshop.vavr'
 version = '1.0.0-SNAPSHOT'
 
-jacocoTestReport {
-    reports {
-        xml.enabled = true
-        html.enabled = true
-    }
-}
-
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
@@ -31,7 +24,6 @@ idea {
         downloadSources = true
     }
 }
-
 
 test {
     testLogging {
@@ -53,10 +45,14 @@ dependencies {
     compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
     compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
 
-    compile group: 'io.vavr', name: 'vavr', version: '0.9.1'
+    // Vavr
+    compile group: 'io.vavr', name: 'vavr', version: '0.9.2'
+
+    // Utils
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
 
     // Test dependencies
-    testCompile group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.4.12'
+    testCompile group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.4.13'
     testCompile group: 'org.spockframework', name: 'spock-core', version: '1.1-groovy-2.4'
     testCompile group: 'org.hamcrest', name: 'hamcrest-core', version: '1.3'
 }

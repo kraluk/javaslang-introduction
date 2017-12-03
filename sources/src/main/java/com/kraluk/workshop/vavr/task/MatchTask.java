@@ -13,7 +13,10 @@ import static io.vavr.Predicates.isIn;
  *
  * @author lukasz
  */
-public class MatchTask {
+public final class MatchTask {
+
+    private MatchTask() {
+    }
 
     public static String doSomeComplexLogic(final String additionalOptions,
                                             final boolean importanceFlag,

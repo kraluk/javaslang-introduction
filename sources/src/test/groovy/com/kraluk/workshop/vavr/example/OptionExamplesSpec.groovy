@@ -1,5 +1,6 @@
 package com.kraluk.workshop.vavr.example
 
+import com.kraluk.workshop.vavr.common.exception.WorkshopException
 import spock.lang.Specification
 
 class OptionExamplesSpec extends Specification {
@@ -23,6 +24,6 @@ class OptionExamplesSpec extends Specification {
         OptionExamples.useOption(value)
 
         then:
-        thrown(Exception)
+        thrown(WorkshopException)
     }
 }

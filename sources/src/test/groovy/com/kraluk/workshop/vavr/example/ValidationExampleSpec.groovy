@@ -11,8 +11,8 @@ class ValidationExampleSpec extends Specification {
         def age = 42
 
         when:
-        Validation<io.vavr.collection.List<String>, Person> valid =
-                PersonValidator.validatePerson(name, age)
+        Validation<io.vavr.collection.List<String>, ValidationExample.Person> valid =
+                ValidationExample.PersonValidator.validatePerson(name, age)
 
         then:
         valid instanceof Validation.Valid
@@ -20,7 +20,7 @@ class ValidationExampleSpec extends Specification {
         with(valid) {
             isValid() == true
             isInvalid() == false
-            get() instanceof Person
+            get() instanceof ValidationExample.Person
         }
     }
 
@@ -30,8 +30,8 @@ class ValidationExampleSpec extends Specification {
         def age = -1
 
         when:
-        Validation<io.vavr.collection.List<String>, Person> invalid =
-                PersonValidator.validatePerson(name, age)
+        Validation<io.vavr.collection.List<String>, ValidationExample.Person> invalid =
+                ValidationExample.PersonValidator.validatePerson(name, age)
 
         then:
         invalid instanceof Validation.Invalid

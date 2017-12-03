@@ -9,7 +9,10 @@ import io.vavr.control.Option;
  *
  * @author lukasz
  */
-public class OptionExamples {
+public final class OptionExamples {
+
+    private OptionExamples() {
+    }
 
     public static Integer useOption(Integer value) {
         Option<Integer> option = Option.of(value);

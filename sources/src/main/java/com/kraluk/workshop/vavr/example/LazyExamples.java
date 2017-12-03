@@ -10,8 +10,11 @@ import io.vavr.Lazy;
  *
  * @author lukasz
  */
-public class LazyExamples {
+public final class LazyExamples {
     private static final Logger log = LoggerFactory.getLogger(LazyExamples.class);
+
+    private LazyExamples() {
+    }
 
     public static Double ofLazy() {
         Lazy<Double> lazy = Lazy.of(Math::random);

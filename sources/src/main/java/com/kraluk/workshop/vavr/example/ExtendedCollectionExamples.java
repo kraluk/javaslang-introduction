@@ -5,7 +5,12 @@ package com.kraluk.workshop.vavr.example;
  *
  * @author lukasz
  */
-public class ExtendedCollectionExamples {
+public final class ExtendedCollectionExamples {
+
+    private static final int RANDOM_CHUNK = 666;
+
+    private ExtendedCollectionExamples() {
+    }
 
     public static java.util.List<Integer> filterValues(int... ints) {
         return io.vavr.collection.List.ofAll(ints)
@@ -14,14 +19,9 @@ public class ExtendedCollectionExamples {
     }
 
     public static java.util.List<Double> getSomeRandomDoubles() {
-        java.util.List<Double> doubles = new java.util.ArrayList<>();
-
-        for (double random : io.vavr.collection.Stream.continually(Math::random)
-            .take(666)
-            .filter(e -> e > 0.5 && e < 0.6)) {
-            doubles.add(random);
-        }
-
-        return doubles;
+        return io.vavr.collection.Stream.continually(Math::random)
+            .take(RANDOM_CHUNK)
+            .filter(e -> e > 0.5 && e < 0.6)
+            .toJavaList();
     }
 }

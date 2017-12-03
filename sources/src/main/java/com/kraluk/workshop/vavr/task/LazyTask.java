@@ -14,8 +14,11 @@ import io.vavr.Lazy;
  *
  * @author lukasz
  */
-public class LazyTask {
+public final class LazyTask {
     private static final Logger log = LoggerFactory.getLogger(LazyTask.class);
+
+    private LazyTask() {
+    }
 
     public static Lazy<Double> calculate(Double x, Double a, Double b, Double c) {
         return Lazy
@@ -43,13 +46,13 @@ public class LazyTask {
 
     // ------------------------------------------------------------------------------------------
 
-    public static Double someComplexAndHeavyMathOperation(Double x, Double a, Double b, Double c) {
+    private static Double someComplexAndHeavyMathOperation(Double x, Double a, Double b, Double c) {
         return a * Math.pow(x, 2) + b * x + c;
     }
 
     // ------------------------------------------------------------------------------------------
 
-    // TODO: consider writting some tests instead of using a main method
+    // TODO: consider witting some tests instead of using a main method
     public static void main(String[] args) {
         Serializable solution2 = calculateInAnotherWay(1.0, 1.0, 1.0, 1.0);
 

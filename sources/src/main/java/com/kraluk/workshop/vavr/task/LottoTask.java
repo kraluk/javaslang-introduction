@@ -10,8 +10,11 @@ import io.vavr.collection.Stream;
  *
  * @author lukasz
  */
-public class LottoTask {
+public final class LottoTask {
     private static final Random RANDOM = new Random();
+
+    private LottoTask() {
+    }
 
     public static List<Integer> getLottoNumbers() {
         return Stream.continually(LottoTask::random)

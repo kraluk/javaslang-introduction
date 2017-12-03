@@ -10,6 +10,9 @@ class LottoTaskSpec extends Specification {
 
         then:
         result.size() == 6
+        and:
+        result.unique().size() == 6
+        and:
         System.out.println(Arrays.toString(result.toArray()))
 
         where:

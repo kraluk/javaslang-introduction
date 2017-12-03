@@ -25,7 +25,10 @@ import static io.vavr.Predicates.isIn;
  *
  * @author lukasz
  */
-public class PatternMatchingExamples {
+public final class PatternMatchingExamples {
+
+    private PatternMatchingExamples() {
+    }
 
     public static Result simpleMatching(int index) {
         return Match(index).of(

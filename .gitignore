@@ -24,14 +24,14 @@ hs_err_pid*
 # Mac specifics
 .DS_Store
 
-# Maven specifics
-log/
-target/
-
 # Gradle specifics
 .gradle/
 build/
+
 .gradletasknamecache
 !gradle-wrapper.jar
 
+# Project specifics
 sources/out
+sources/log
+

@@ -18,9 +18,12 @@ import static io.vavr.Predicates.instanceOf;
  *
  * @author lukasz
  */
-public class TryTask {
+public final class TryTask {
     private static final List<String> IO_ERROR = Collections.singletonList("IO Error occurred!");
     private static final List<String> NPE_ERROR = Collections.singletonList("NPE occurred!");
+
+    private TryTask() {
+    }
 
     public static List<String> getResult(final String path) {
 
