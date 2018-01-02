@@ -32,6 +32,6 @@ build/
 !gradle-wrapper.jar
 
 # Project specifics
-sources/out
-sources/log
+out/
+log/
 
