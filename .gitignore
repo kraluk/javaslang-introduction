@@ -31,6 +31,7 @@ build/
 .gradletasknamecache
 !gradle-wrapper.jar
 
+
 # Maven specifics
 log/
 target/
@@ -38,8 +39,7 @@ target/
 !maven-wrapper.jar
 
 # Project specifics
-sources-lecture/out
-sources-lecture/out
-sources-workshops/log
-sources-workshops/log
+out/
+log/
 *.log
+

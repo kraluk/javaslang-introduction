@@ -2,4 +2,10 @@
 
 # vavr-introduction
 
-An introduction to the ~~JavaSlang~~ __Vavr__. Covers some basic functional programming concepts provided by it.
+An introduction to the ~~JavaSlang~~ __Vavr__ prepared specially for Computer Science students from the Jagiellonian University. Covers some basic functional programming concepts provided by it and following features:
+* Match
+* Try
+* Lazy
+* Validation API
+* Collection Framework "Extension"
+
